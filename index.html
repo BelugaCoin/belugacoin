@@ -125,3 +125,27 @@ document.getElementById("btn-logout").onclick = logOut;
  src: url("IntroRustG-Trial-Base.woff2") format("woff2");
 }
 </style>
+<style>
+.button, .btn-login, btn-logout {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 10px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #00E8E8;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover, .btn-login:hover, btn-logout:hover {background-color: 005B5B}
+
+.button:active, .btn-login:active, btn-logout:active{
+  background-color: #00E8E8;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+</style>
