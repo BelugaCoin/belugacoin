@@ -101,6 +101,48 @@ document.getElementById("btn-logout").onclick = logOut;
     <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOW TO PLAY</a>
     <a href="#" class="w3-bar-item w3-button" style="width:25% !important">SCORE</a>
     <a href="#" class="w3-bar-item w3-button" style="width:25% !important">MY PETS</a>
+    <!DOCTYPE html>
+<html>
+
+    <title>My Pet Beluga</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+
+ 
+    <button hover="background-color: #005B5B" style="margin-bottom: 10px; border-radius: 4px; background-color: #00E8E8; color: white; border: none" id="btn-login">Connect</button>
+    <button hover="background-color: #005B5B" style="border-radius: 4px; background-color: #00E8E8; color: white; border: none" id="btn-logout">Logout</button>
+    <script type="text/javascript" src="./main.js"></script>
+
+</html>
+<script>
+// main.js
+
+const serverUrl = "https://ovzy6hr0msy7.usemoralis.com:2053/server";
+const appId = "LD1TXn947y7U7Fww0yPHNRF6W5UtOSbJs6N9sbld";
+Moralis.start({ serverUrl, appId });
+
+/** Add from here down */
+async function login() {
+  let user = Moralis.User.current();
+  if (!user) {
+   try {
+      user = await Moralis.authenticate({ signingMessage: "Welcome to Beluga the Cat!" })
+      console.log(user)
+      console.log(user.get('ethAddress'))
+   } catch(error) {
+     console.log(error)
+   }
+  }
+}
+
+async function logOut() {
+  await Moralis.User.logOut();
+  console.log("logged out");
+}
+
+document.getElementById("btn-login").onclick = login;
+document.getElementById("btn-logout").onclick = logOut;
+</script>
   </div>
 </div>
 
