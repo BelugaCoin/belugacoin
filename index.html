@@ -113,40 +113,12 @@ document.getElementById("btn-logout").onclick = logOut;
     <script type="text/javascript" src="./main.js"></script>
 
 </html>
-<script>
-// main.js
 
-const serverUrl = "https://ovzy6hr0msy7.usemoralis.com:2053/server";
-const appId = "LD1TXn947y7U7Fww0yPHNRF6W5UtOSbJs6N9sbld";
-Moralis.start({ serverUrl, appId });
-
-/** Add from here down */
-async function login() {
-  let user = Moralis.User.current();
-  if (!user) {
-   try {
-      user = await Moralis.authenticate({ signingMessage: "Welcome to Beluga the Cat!" })
-      console.log(user)
-      console.log(user.get('ethAddress'))
-   } catch(error) {
-     console.log(error)
-   }
-  }
-}
-
-async function logOut() {
-  await Moralis.User.logOut();
-  console.log("logged out");
-}
-
-document.getElementById("btn-login").onclick = login;
-document.getElementById("btn-logout").onclick = logOut;
-</script>
   </div>
 </div>
 
 <!-- Page Content -->
-<div style="height: 100%; padding: 0; margin: 0" id="main">
+<div style="height: 100%; padding-bottom: 0; margin: 0" id="main">
   <!-- Header/Home -->
   <header style="background-image: url('https://i.ibb.co/68kMB8Q/BELUGA-THE-CAT.jpg'); background-size: cover" class="w3-container w3-padding-38 w3-center w3-black" id="home">
     
