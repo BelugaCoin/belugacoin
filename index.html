@@ -24,7 +24,50 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Intro Rust", sans-serif}
   <!DOCTYPE html>
 <html>
 <head>
-  
+  <div>
+    <!DOCTYPE html>
+<html>
+
+    <title>My Pet Beluga</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+
+ 
+    <button style="display:inline-block; margin-bottom: 40px; margin: auto; border-radius: 4px; background-color: #00E8E8; color: white; border: none" id="btn-login">Connect</button>
+    <button style="display:inline-block; margin-bottom: 40px; margin: auto; border-radius: 4px; background-color: #00E8E8; color: white; border: none" id="btn-logout">Logout</button>
+    <script type="text/javascript" src="./main.js"></script>
+
+</html>
+<script>
+// main.js
+
+const serverUrl = "https://ovzy6hr0msy7.usemoralis.com:2053/server";
+const appId = "LD1TXn947y7U7Fww0yPHNRF6W5UtOSbJs6N9sbld";
+Moralis.start({ serverUrl, appId });
+
+/** Add from here down */
+async function login() {
+  let user = Moralis.User.current();
+  if (!user) {
+   try {
+      user = await Moralis.authenticate({ signingMessage: "Welcome to Beluga the Cat!" })
+      console.log(user)
+      console.log(user.get('ethAddress'))
+   } catch(error) {
+     console.log(error)
+   }
+  }
+}
+
+async function logOut() {
+  await Moralis.User.logOut();
+  console.log("logged out");
+}
+
+document.getElementById("btn-login").onclick = login;
+document.getElementById("btn-logout").onclick = logOut;
+</script>
+   </div>
 
   <!-- Avatar image in top left corner -->
 <img style="margin-top: 10px" src="https://i.ibb.co/7kn0PY8/BELUGA-the-Cat-200-200px-100-100px.png" alt="BELUGA-the-Cat-200-200px-100-100px" border="0">
@@ -78,50 +121,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Intro Rust", sans-serif}
 
 <!-- END PAGE CONTENT -->
 </div>
-<div>
-    <!DOCTYPE html>
-<html>
 
-    <title>My Pet Beluga</title>
-    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
-
- 
-    <button style="display:inline-block; margin-bottom: 40px; margin: auto; border-radius: 4px; background-color: #00E8E8; color: white; border: none" id="btn-login">Connect</button>
-    <button style="display:inline-block; margin-bottom: 40px; margin: auto; border-radius: 4px; background-color: #00E8E8; color: white; border: none" id="btn-logout">Logout</button>
-    <script type="text/javascript" src="./main.js"></script>
-
-</html>
-<script>
-// main.js
-
-const serverUrl = "https://ovzy6hr0msy7.usemoralis.com:2053/server";
-const appId = "LD1TXn947y7U7Fww0yPHNRF6W5UtOSbJs6N9sbld";
-Moralis.start({ serverUrl, appId });
-
-/** Add from here down */
-async function login() {
-  let user = Moralis.User.current();
-  if (!user) {
-   try {
-      user = await Moralis.authenticate({ signingMessage: "Welcome to Beluga the Cat!" })
-      console.log(user)
-      console.log(user.get('ethAddress'))
-   } catch(error) {
-     console.log(error)
-   }
-  }
-}
-
-async function logOut() {
-  await Moralis.User.logOut();
-  console.log("logged out");
-}
-
-document.getElementById("btn-login").onclick = login;
-document.getElementById("btn-logout").onclick = logOut;
-</script>
-   </div>
   </body>
 </html>
 <style>
