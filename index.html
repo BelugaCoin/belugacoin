@@ -25,7 +25,27 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Intro Rust", sans-serif}
 <html>
 <head>
   
-<!DOCTYPE html>
+
+  <!-- Avatar image in top left corner -->
+<img src="https://i.ibb.co/7kn0PY8/BELUGA-the-Cat-200-200px-100-100px.png" alt="BELUGA-the-Cat-200-200px-100-100px" border="0">
+  <a href="https://belugathecat.com" class="w3-bar-item w3-button w3-padding-large w3-black">
+    <i class="fa fa-cat w3-xxlarge"></i>
+    <p>HOME</p>
+  </a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-cat w3-xxlarge"></i>
+    <p>HOW TO<br> 
+    PLAY</p>
+  </a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-cat w3-xxlarge"></i>
+    <p>SCORE</p>
+  </a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-cat w3-xxlarge"></i>
+    <p>MY PETS</p>
+  </a>
+  <!DOCTYPE html>
 <html>
 
     <title>My Pet Beluga</title>
@@ -33,7 +53,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Intro Rust", sans-serif}
     <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
 
  
-    <button style="border-radius: 4px; background-color: #00E8E8; color: white; border: none" id="btn-login">Connect</button>
+    <button style="margin-bottom: 10px; border-radius: 4px; background-color: #00E8E8; color: white; border: none" id="btn-login">Connect</button>
     <button style="border-radius: 4px; background-color: #00E8E8; color: white; border: none" id="btn-logout">Logout</button>
     <script type="text/javascript" src="./main.js"></script>
 
@@ -67,25 +87,6 @@ async function logOut() {
 document.getElementById("btn-login").onclick = login;
 document.getElementById("btn-logout").onclick = logOut;
 </script>
-  <!-- Avatar image in top left corner -->
-<img src="https://i.ibb.co/7kn0PY8/BELUGA-the-Cat-200-200px-100-100px.png" alt="BELUGA-the-Cat-200-200px-100-100px" border="0">
-  <a href="https://belugathecat.com" class="w3-bar-item w3-button w3-padding-large w3-black">
-    <i class="fa fa-cat w3-xxlarge"></i>
-    <p>HOME</p>
-  </a>
-  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-cat w3-xxlarge"></i>
-    <p>HOW TO<br> 
-    PLAY</p>
-  </a>
-  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-cat w3-xxlarge"></i>
-    <p>SCORE</p>
-  </a>
-  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-cat w3-xxlarge"></i>
-    <p>MY PETS</p>
-  </a>
 </nav>
 
 <!-- Navbar on small screens (Hidden on medium and large screens) -->
