@@ -78,12 +78,14 @@ function create ()
 	
 	platforms = this.physics.add.staticGroup();
 	
-	player = this.physics.add.sprite(400, 200, 'player');
+	player = this.physics.add.sprite(650, 200, 'player');
 	player.setBounce(0.2);
 player.setCollideWorldBounds(true);
 
 	this.physics.add.collider(player, platforms);
 	
+	platforms.create(1250, 568, 'ground').setScale(2).refreshBody();
+	platforms.create(1000, 568, 'ground').setScale(2).refreshBody();
 	platforms.create(750, 568, 'ground').setScale(2).refreshBody();
 	platforms.create(500, 568, 'ground').setScale(2).refreshBody();
 	platforms.create(250, 568, 'ground').setScale(2).refreshBody();
