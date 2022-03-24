@@ -13,14 +13,9 @@ Moralis.start({ serverUrl, appId });
 async function login() {
   let user = Moralis.User.current();
   if (!user) {
-   try {
-      user = await Moralis.authenticate({ signingMessage: "Welcome to Beluga the Cat!" })
-      console.log(user)
-      console.log(user.get('ethAddress'))
-   } catch(error) {
-     console.log(error)
-   }
+  user = await Moralis.Web3.authenticate();
   }
+  console.log("logged in user", user);
 }
 
 async function logOut() {
@@ -58,15 +53,14 @@ var player;
 var cursor;
 
                 function launch (){
-                        
-                         let user = Moralis.User.current();
-                 if (!user) {
-                console.log("PLEASE LOG IN WITH METAMASK")
-                          }
-                        else {
-                                console.log(user.get("ethAddress") + " " + "logged in")
-                game = new Phaser.Game(config);
-        }
+                        let user = Moralis.User.current();
+  if (!user) {
+   let user = Moralis.User.current();
+  console.log("PLEASE LOG IN WITH METAMASK")
+  }
+   else{
+     console.log(user.get("ethAddress") + " " + "logged in")
+     game = new Phaser.Game(config);
              }            
                         launch();
         
