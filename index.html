@@ -35,6 +35,7 @@ async function login() {
 async function logOut() {
   await Moralis.User.logOut();
   console.log("logged out");
+	location.reload();
 }
 
 
