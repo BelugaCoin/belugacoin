@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html>
-
-    <title>My Pet Beluga</title>
-    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
- 
-    <button style="display:inline-block; margin-bottom: 40px; margin: auto; border-radius: 4px; background-color: #00E8E8; color: white; border: none" id="btn-login">Connect</button>
-    <button style="display:inline-block; margin-bottom: 40px; margin: auto; border-radius: 4px; background-color: #00E8E8; color: white; border: none" id="btn-logout">Logout</button>
-    <script type="text/javascript" src="./main.js"></script>
-	<br>
-</html>
+<button style="display:inline-block; margin-bottom: 40px; margin: auto; border-radius: 4px; background-color: #00E8E8; color: white; border: none" id="btn-login">Connect</button> <button style="display:inline-block; margin-bottom: 40px; margin: auto; border-radius: 4px; background-color: #00E8E8; color: white; border: none" id="btn-logout">Logout</button> 
+<script type="text/javascript" src="./main.js"></script><br>
 <script>
+
+
 // main.js
 
 const serverUrl = "https://ovzy6hr0msy7.usemoralis.com:2053/server";
@@ -35,7 +26,7 @@ async function login() {
 async function logOut() {
   await Moralis.User.logOut();
   console.log("logged out");
-	location.reload();
+        location.reload();
 }
 
 
@@ -47,7 +38,7 @@ var config = {
     type: Phaser.AUTO,
     width: 1200,
     height: 500,
-	physics: {
+        physics: {
         default: 'arcade',
         arcade: {
             gravity: { y: 300 },
@@ -66,59 +57,59 @@ var platforms;
 var player;
 var cursor;
 
-		function launch (){
-			
-			 let user = Moralis.User.current();
+                function launch (){
+                        
+                         let user = Moralis.User.current();
                  if (!user) {
                 console.log("PLEASE LOG IN WITH METAMASK")
-			  }
-			else {
-				console.log(user.get("ethAddress") + " " + "logged in")
-		game = new Phaser.Game(config);
-	}
-			
-			launch();
-	
-	
+                          }
+                        else {
+                                console.log(user.get("ethAddress") + " " + "logged in")
+                game = new Phaser.Game(config);
+        }
+                        
+                        launch();
+        
+        
 // loading assets
 function preload ()
 {
-	this.load.image('background', 'BG.png');
-	this.load.image('ground', '2.png');
-	this.load.image('player', 'beluga1.png');
+        this.load.image('background', 'BG.png');
+        this.load.image('ground', '2.png');
+        this.load.image('player', 'beluga1.png');
 }
 
 // initial setup
 function create ()
 {
-	this.add.image(600, 250, 'background').setScale(2);
-	
-	platforms = this.physics.add.staticGroup();
-	
-	
-	player = this.physics.add.sprite(600, 200, 'player');
-	player.setBounce(0.3);
+        this.add.image(600, 250, 'background').setScale(2);
+        
+        platforms = this.physics.add.staticGroup();
+        
+        
+        player = this.physics.add.sprite(600, 200, 'player');
+        player.setBounce(0.3);
 player.setCollideWorldBounds(true);
 
-	this.physics.add.collider(player, platforms);
-	cursors = this.input.keyboard.createCursorKeys();
-	
-	
-	platforms.create(1250, 568, 'ground').setScale(2).refreshBody();
-	platforms.create(1000, 568, 'ground').setScale(2).refreshBody();
-	platforms.create(750, 568, 'ground').setScale(2).refreshBody();
-	platforms.create(500, 568, 'ground').setScale(2).refreshBody();
-	platforms.create(250, 568, 'ground').setScale(2).refreshBody();
-	platforms.create(0, 568, 'ground').setScale(2).refreshBody();
-	
+        this.physics.add.collider(player, platforms);
+        cursors = this.input.keyboard.createCursorKeys();
+        
+        
+        platforms.create(1250, 568, 'ground').setScale(2).refreshBody();
+        platforms.create(1000, 568, 'ground').setScale(2).refreshBody();
+        platforms.create(750, 568, 'ground').setScale(2).refreshBody();
+        platforms.create(500, 568, 'ground').setScale(2).refreshBody();
+        platforms.create(250, 568, 'ground').setScale(2).refreshBody();
+        platforms.create(0, 568, 'ground').setScale(2).refreshBody();
+        
 
 }
 
 // 60 times per second
 function update ()
 {
-	// LOGIC
-	if (cursors.left.isDown)
+        // LOGIC
+        if (cursors.left.isDown)
 {
     player.setVelocityX(-160);
 
@@ -142,4 +133,3 @@ if (cursors.up.isDown && player.body.touching.down)
 }
 }
 </script>
-
