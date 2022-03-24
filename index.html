@@ -43,7 +43,8 @@ var platforms;
 var player;
 var cursor;
 
-                 function launch(){
+                
+      function launch(){
         let user = Moralis.User.current();
         if (!user) {
           console.log("PLEASE LOG IN WITH METAMASK!!")
@@ -122,7 +123,7 @@ if (cursors.up.isDown && player.body.touching.down)
 	
 	
 /** Add from here down */
- async function login() {
+async function login() {
         let user = Moralis.User.current();
         if (!user) {
           user = await Moralis.Web3.authenticate();
@@ -138,8 +139,8 @@ if (cursors.up.isDown && player.body.touching.down)
       }
 
 
-document.getElementById("btn-login").onclick = login;
-document.getElementById("btn-logout").onclick = logOut;
+      document.getElementById("btn-login").onclick = login;
+      document.getElementById("btn-logout").onclick = logOut;
 
 
 
