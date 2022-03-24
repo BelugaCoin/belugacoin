@@ -55,18 +55,18 @@
    var player;
    var cursor;
    
-                   function launch (){
+   function launch (){
                            
-                            let user = Moralis.User.current();
-                    if (!user) {
-                   console.log("PLEASE LOG IN WITH METAMASK")
-                             }
-                           else {
-                                   console.log(user.get("ethAddress") + " " + "logged in")
-                   game = new Phaser.Game(config);
+    let user = Moralis.User.current();
+        if (!user) {
+          console.log("PLEASE LOG IN WITH METAMASK")
+        }
+        else {
+          console.log(user.get("ethAddress") + " " + "logged in")
+          game = new Phaser.Game(config);
            }
-                           
-                           launch();
+          }               
+        launch();
            
            
    // loading assets
