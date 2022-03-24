@@ -9,39 +9,22 @@
 
   </head>
 
-
+<body>
 <button style="display:inline-block; margin-bottom: 40px; margin: auto; border-radius: 4px; background-color: #00E8E8; color: white; border: none" id="btn-login">Connect</button> <button style="display:inline-block; margin-bottom: 40px; margin: auto; border-radius: 4px; background-color: #00E8E8; color: white; border: none" id="btn-logout">Logout</button> 
-<script type="text/javascript" src="./main.js"></script><br>
+ <br><br>
+	</body>
+	<script type="text/javascript" src="./main.js"></script><br>
 <script>
+	
+	
+      // connect to Moralis server
+      Moralis.initialize("LD1TXn947y7U7Fww0yPHNRF6W5UtOSbJs6N9sbld");
+      Moralis.serverURL = "https://ovzy6hr0msy7.usemoralis.com:2053/server";
 
 
-// main.js
-
-const serverUrl = "https://ovzy6hr0msy7.usemoralis.com:2053/server";
-const appId = "LD1TXn947y7U7Fww0yPHNRF6W5UtOSbJs6N9sbld";
-Moralis.start({ serverUrl, appId });
-
-/** Add from here down */
-async function login() {
-  let user = Moralis.User.current();
-  if (!user) {
-  user = await Moralis.Web3.authenticate();
-  }
-  console.log("logged in user", user);
-}
-
-async function logOut() {
-  await Moralis.User.logOut();
-  console.log("logged out");
-        location.reload();
-}
-
-
-document.getElementById("btn-login").onclick = login;
-document.getElementById("btn-logout").onclick = logOut;
-
-
-var config = {
+	
+	
+	var config = {
     type: Phaser.AUTO,
     width: 1200,
     height: 500,
@@ -64,17 +47,19 @@ var platforms;
 var player;
 var cursor;
 
-                function launch (){
-                        let user = Moralis.User.current();
-  if (!user) {
-   let user = Moralis.User.current();
-  console.log("PLEASE LOG IN WITH METAMASK")
-  }
-   else{
-     console.log(user.get("ethAddress") + " " + "logged in")
-     game = new Phaser.Game(config);
-             }            
-                        launch();
+                 function launch(){
+        let user = Moralis.User.current();
+        if (!user) {
+          console.log("PLEASE LOG IN WITH METAMASK!!")
+        }
+        else{
+          console.log(user.get("ethAddress") + " " + "logged in")
+          game = new Phaser.Game(config);
+        }
+
+      }
+
+      launch();
         
         
 // loading assets
@@ -138,4 +123,32 @@ if (cursors.up.isDown && player.body.touching.down)
     player.setVelocityY(-240);
 }
 }
+	
+	
+/** Add from here down */
+ async function login() {
+        let user = Moralis.User.current();
+        if (!user) {
+          user = await Moralis.Web3.authenticate();
+          launch()
+        }
+        console.log("logged in user:", user);
+      }
+
+      async function logOut() {
+        await Moralis.User.logOut();
+        console.log("logged out");
+        location.reload();
+      }
+
+
+document.getElementById("btn-login").onclick = login;
+document.getElementById("btn-logout").onclick = logOut;
+
+
+
 </script>
+	 </body>
+
+
+</html>
