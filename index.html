@@ -57,11 +57,13 @@ var game = new Phaser.Game(config);
 // loading assets
 function preload ()
 {
+	this.load.image('background', 'BG.png');
 }
 
 // initial setup
 function create ()
 {
+	this.add.image(400, 300, 'background');
 }
 
 // 60 times per second
