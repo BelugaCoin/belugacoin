@@ -37,6 +37,7 @@ async function logOut() {
   console.log("logged out");
 }
 
+
 document.getElementById("btn-login").onclick = login;
 document.getElementById("btn-logout").onclick = logOut;
 
@@ -64,6 +65,20 @@ var platforms;
 var player;
 var cursor;
 
+		function launch (){
+			
+			 let user = Moralis.User.current();
+                 if (!user) {
+                console.log("PLEASE LOG IN WITH METAMASK")
+			  }
+			else {
+				console.log(user.get("ethAddress") + " " + "logged in")
+		game = new Phaser.Game(config);
+	}
+			
+			launch();
+	
+	
 // loading assets
 function preload ()
 {
