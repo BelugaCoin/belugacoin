@@ -53,17 +53,20 @@ var config = {
 };
 
 var game = new Phaser.Game(config);
+var player;
 
 // loading assets
 function preload ()
 {
 	this.load.image('background', 'BG.png');
+	this.load.image('player', 'BELUGA the Cat (100 × 100px) (1000 × 1000px) (1)png');
 }
 
 // initial setup
 function create ()
 {
 	this.add.image(400, 300, 'background');
+	player = this.physics.add.sprite(100, 450, 'player');
 }
 
 // 60 times per second
