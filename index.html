@@ -62,6 +62,7 @@ var config = {
 var game = new Phaser.Game(config);
 var platforms;
 var player;
+var cursor;
 
 // loading assets
 function preload ()
@@ -78,11 +79,14 @@ function create ()
 	
 	platforms = this.physics.add.staticGroup();
 	
+	
 	player = this.physics.add.sprite(650, 200, 'player');
 	player.setBounce(0.2);
 player.setCollideWorldBounds(true);
 
 	this.physics.add.collider(player, platforms);
+	cursors = this.input.keyboard.createCursorKeys();
+	
 	
 	platforms.create(1250, 568, 'ground').setScale(2).refreshBody();
 	platforms.create(1000, 568, 'ground').setScale(2).refreshBody();
@@ -98,6 +102,28 @@ player.setCollideWorldBounds(true);
 function update ()
 {
 	// LOGIC
+	if (cursors.left.isDown)
+{
+    player.setVelocityX(-160);
+
+   
+}
+else if (cursors.right.isDown)
+{
+    player.setVelocityX(160);
+
+   
+}
+else
+{
+    player.setVelocityX(0);
+
+}
+
+if (cursors.up.isDown && player.body.touching.down)
+{
+    player.setVelocityY(-330);
+}
 }
 </script>
 
