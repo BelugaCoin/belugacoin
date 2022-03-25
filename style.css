@@ -63,3 +63,9 @@
   padding: 0;
   width: auto;
 }
+
+.content {
+  max-width: 500px;
+  margin: auto;
+  padding: 0;
+}
